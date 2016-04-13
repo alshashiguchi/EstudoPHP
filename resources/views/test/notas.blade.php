@@ -10,8 +10,8 @@ Minhas anotações
         <h1>Anotações</h1>
         
         <ul>
-            <?php foreach ($notas as $nota):?>
-            <li><?=$nota;?></li>
-            <?php endforeach;?>              
+            @foreach($notas as $nota)            
+            <li>{{ $nota }}</li>
+            @endforeach              
         </ul>
 @stop
