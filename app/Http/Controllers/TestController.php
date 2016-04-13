@@ -15,6 +15,8 @@ class TestController extends Controller
     {
         //$nome = "André";
         //return "Olá $nome!";
-        return "<html><head><title>Olá</title></head><body>Olá $nome</body></html>";        
+        //Já sabe que tem que localizar o arquivo na pasta test/index.blade.php
+        //por convensão o laravel utiliza o "." no lugar da "/"
+        return view('test.index');        
     }    
 }
