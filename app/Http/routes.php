@@ -26,3 +26,5 @@ Route::get('test', function(){
 //como apontar para um controller e executar o metodo index do controller
 //quando coloca entre chaves vira uma variavel {nome}
 Route::get('ola/{nome}', 'TestController@index');
+
+Route::get('notas', 'TestController@notas');

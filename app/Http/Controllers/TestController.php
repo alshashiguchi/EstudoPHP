@@ -20,4 +20,9 @@ class TestController extends Controller
         //A atribuição de variaveis para a view utiliza o [] (array)
         return view('test.index', ['nome' => $nome]);        
     }    
+    
+    public function notas()
+    {
+        return view('test.notas');
+    }
 }
