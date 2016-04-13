@@ -5,6 +5,10 @@
     <title>Olá</title>
 </header> 
 <body>
-    <h1>Olá André</h1>
+    <!--
+        Com o Blade não é necessario digitar codigo php no html ex.:<?php echo $nome; ?> é só usar as
+        chaves         
+     -->
+    <h1>Olá {{ $nome }}</h1>
 </body>   
 </html>

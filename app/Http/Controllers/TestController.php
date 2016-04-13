@@ -16,7 +16,8 @@ class TestController extends Controller
         //$nome = "André";
         //return "Olá $nome!";
         //Já sabe que tem que localizar o arquivo na pasta test/index.blade.php
-        //por convensão o laravel utiliza o "." no lugar da "/"
-        return view('test.index');        
+        //por convensão o laravel utiliza o "." no lugar da "/" 
+        //A atribuição de variaveis para a view utiliza o [] (array)
+        return view('test.index', ['nome' => $nome]);        
     }    
 }
