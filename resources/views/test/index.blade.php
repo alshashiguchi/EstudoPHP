@@ -1,5 +1,12 @@
 @extends('template')
 
+
+@section('title')
+
+Olá
+
+@stop
+
 @section('content')
     <!--
         Com o Blade não é necessario digitar codigo php no html ex.:<?php echo $nome; ?> é só usar as
