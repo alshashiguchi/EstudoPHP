@@ -1,0 +1,11 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+//somente pelo fato de trabalhar com o extends model já funciona com o model do laravel
+class Post extends Model
+{
+    //
+}
