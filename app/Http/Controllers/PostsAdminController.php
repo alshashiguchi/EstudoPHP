@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 use App\Post;
 
 class PostsAdminController extends Controller
@@ -27,7 +28,7 @@ class PostsAdminController extends Controller
         return view('admin.posts.create');        
     }
     
-    public function store(Request $request)
+    public function store(PostRequest $request)
     {
         //dd mata a aplicação e depois mostra os resultados
         //dd($request->all());        
