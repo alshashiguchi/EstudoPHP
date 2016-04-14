@@ -1,7 +1,7 @@
 @extends('template')
 
 @section('content')
-    <h1>Create new Post</h1>
+    <h1>Edit Post: {{ $post->title }} </h1>
 
     @if($errors->any())
         <ul class="alert">
@@ -10,13 +10,11 @@
             @endforeach
         </ul>    
     @endif
-    
-    {!! Form::open(['route'=>'admin.posts.store','method'=>'post']) !!}
-    
+    <!--model já carrega as inforamções é necessario passar a variavel que sera utilizada nesse caso o $post-->
+    {!! Form::model($post, ['route'=>['admin.posts.update', $post->id],'method'=>'put']) !!}
     @include('admin.posts._form')
-    
     <div class="form-group">
-        {!! Form::submit('Create Post', ['class'=>'btn btn-primary']) !!}        
+        {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}        
     </div>
     
     {!! Form::close() !!}
