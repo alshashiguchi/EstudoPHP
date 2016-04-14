@@ -31,28 +31,10 @@ Route::get('test', function(){
 
 Route::get('/', 'PostsController@index');
 
-Route::get('/auth', function(){
-    //facade user
-    //$user = \App\User::find(1);
-    //Auth::login($user);    
-    
-    //attempt faz a tentativa de login, pega os campos e verifica se um usuario tem os dados passados    
-    if(Auth::attempt(['email'=>'andre@gmail.com', 'password'=>123456]))
-    {
-        return "Oi";        
-    }
-    
-    return "falhou";
-    //checa se o usuario está autenticado
-    //if(Auth::check())
-    //{
-    //    return "true";
-    //}
-});
-
-Route::get('/auth/logout', function(){
-    Auth::logout();
-});
+//Autenticação
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 //agrupamento de rotas (group)
 //middleware intercepta a requisição, e verifica se o usuario esta logado, se estiver deixa continuar senão bloqueia
