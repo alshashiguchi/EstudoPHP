@@ -26,4 +26,13 @@ class PostsAdminController extends Controller
     {
         return view('admin.posts.create');        
     }
+    
+    public function store(Request $request)
+    {
+        //dd mata a aplicação e depois mostra os resultados
+        //dd($request->all());        
+        $this->post->create($request->all());
+        
+        return redirect()->route('admin.posts.index');
+    }
 }
