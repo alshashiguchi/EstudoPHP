@@ -13,7 +13,8 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         //Apaga todos os registros da tabela
-        Post::truncate();
+        //Mysql deu problema
+        //Post::truncate();
         
         factory('App\Post', 15)->create();
     }
