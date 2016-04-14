@@ -2,6 +2,11 @@
 
 @section('content')
     <h1>Blog Admin</h1>
+    
+    <a href="{{ route('admin.posts.create') }}" class="btn btn-success">Create new Post</a>
+    <br>
+    <br>
+    
     <!--
         comando para gerar uma tabela com tres colunas 
         no fim é só dar o tab
@@ -20,7 +25,10 @@
         <tr>
             <td>{{ $post->id }}</td>
             <td>{{ $post->title }}</td>
-            <td></td>
+            <td>
+                <a href="{{ route('admin.posts.edit',['id'=> $post->id]) }}" class="btn btn-default">Edit</a>
+                <a href="{{ route('admin.posts.destroy',['id'=> $post->id]) }}" class="btn btn-danger">Delete</a>
+            </td>
         </tr>
         @endforeach
     </table>
