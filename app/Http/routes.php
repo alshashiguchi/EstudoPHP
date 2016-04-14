@@ -32,9 +32,12 @@ Route::get('test', function(){
 Route::get('/', 'PostsController@index');
 
 //Autenticação
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
+//controllers pega todos os métodos do controller, ex: auth\login - getLogin (get - metodo) (login - action)
+//não tem que colocar todas as url fica automatico
+Route::controllers([
+    'auth'=>'Auth\AuthController',
+    'password'=>'Auth\PasswordController',
+]);
 
 //agrupamento de rotas (group)
 //middleware intercepta a requisição, e verifica se o usuario esta logado, se estiver deixa continuar senão bloqueia
