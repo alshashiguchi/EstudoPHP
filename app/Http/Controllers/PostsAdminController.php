@@ -16,7 +16,7 @@ class PostsAdminController extends Controller
     {
         $this->post = $post;        
     }
-    
+
     public function index()
     {        
         $posts = $this->post->paginate(5);

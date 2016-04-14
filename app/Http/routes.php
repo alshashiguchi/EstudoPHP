@@ -31,8 +31,24 @@ Route::get('test', function(){
 
 Route::get('/', 'PostsController@index');
 
-//agrupamento de rotas
-Route::group(['prefix'=>'admin'], function (){
+Route::get('/auth', function(){
+    //facade user
+    $user = \App\User::find(1);
+    Auth::login($user);    
+    
+    //checa se o usuario está autenticado
+    if(Auth::check()){
+        return "true";
+    }
+});
+
+Route::get('/auth/logout', function(){
+    Auth::logout();
+});
+
+//agrupamento de rotas (group)
+//middleware intercepta a requisição, e verifica se o usuario esta logado, se estiver deixa continuar senão bloqueia
+Route::group(['prefix'=>'admin', 'middleware'=>'auth'], function (){
     Route::group(['prefix'=>'posts'], function(){
         //Rotas nomeadas (as) indica o nome que sera usado e o (uses) qual controller sera utilizado
         //Rotas nomeadas é util pois é possivel alterar a url sem ter que alterar todos os lugares que as usam.
