@@ -23,4 +23,12 @@ class Post extends Model
         //tem que explicitamente mostrar qual tabela faz a relação Many To Many
         return $this->belongsToMany('App\Tag', 'posts_tags');
     }
+    
+    //A palavra get e attribute são obrigatorias quando usa atributos dinamicos o que fica entre as palavras é o nome do atributo
+    public function getTagListAttribute()
+    {
+        $tags = $this->tags()->lists('name')->all();
+        
+        return implode(', ', $tags);
+    }
 }

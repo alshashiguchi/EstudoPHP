@@ -13,6 +13,12 @@
     <!--model já carrega as inforamções é necessario passar a variavel que sera utilizada nesse caso o $post-->
     {!! Form::model($post, ['route'=>['admin.posts.update', $post->id],'method'=>'put']) !!}
     @include('admin.posts._form')
+    
+    <div class="form-group">
+        {!! Form::label('tags','Tags: ', ['class'=>'control-label']) !!}
+        {!! Form::textarea('tags', $post->tagList, ['class'=>'form-control']) !!}   
+    </div>
+    
     <div class="form-group">
         {!! Form::submit('Save', ['class'=>'btn btn-primary']) !!}        
     </div>
