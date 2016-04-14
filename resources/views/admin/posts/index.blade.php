@@ -24,4 +24,10 @@
         </tr>
         @endforeach
     </table>
+    
+    <!--
+        Gera todo o codigo da paginação
+        As chaves e exclamação serve para renderizar a pagina html sem ele o vai mostrar o codigo html
+    -->
+    {!! $posts->render() !!}
 @endsection
