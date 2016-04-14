@@ -33,13 +33,21 @@ Route::get('/', 'PostsController@index');
 
 Route::get('/auth', function(){
     //facade user
-    $user = \App\User::find(1);
-    Auth::login($user);    
+    //$user = \App\User::find(1);
+    //Auth::login($user);    
     
-    //checa se o usuario está autenticado
-    if(Auth::check()){
-        return "true";
+    //attempt faz a tentativa de login, pega os campos e verifica se um usuario tem os dados passados    
+    if(Auth::attempt(['email'=>'andre@gmail.com', 'password'=>123456]))
+    {
+        return "Oi";        
     }
+    
+    return "falhou";
+    //checa se o usuario está autenticado
+    //if(Auth::check())
+    //{
+    //    return "true";
+    //}
 });
 
 Route::get('/auth/logout', function(){
