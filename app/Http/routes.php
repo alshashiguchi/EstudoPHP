@@ -10,11 +10,11 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+/*
 Route::get('/', function () {
     return view('welcome');
 });
-
+*/
 /*
 Route::get('test', function(){
     //lolgica
@@ -25,8 +25,10 @@ Route::get('test', function(){
 
 //como apontar para um controller e executar o metodo index do controller
 //quando coloca entre chaves vira uma variavel {nome}
-Route::get('ola/{nome}', 'TestController@index');
+//Route::get('ola/{nome}', 'TestController@index');
 
-Route::get('notas', 'TestController@notas');
+//Route::get('notas', 'TestController@notas');
 
-Route::get('blog', 'PostsController@index');
+Route::get('/', 'PostsController@index');
+
+Route::get('admin', 'PostsAdminController@index');
